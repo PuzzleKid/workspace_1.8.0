@@ -107,7 +107,7 @@ int main(void)
 //	  HAL_Delay(1000);
 //	  LED_RED_TOGGLE;
 	  if(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){
-		  LED_RED_TOGGLE;
+		  LED_GREEN_TOGGLE;
 		  while(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){}
 	  }
     /* USER CODE END WHILE */
