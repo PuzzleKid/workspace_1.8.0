@@ -63,7 +63,6 @@ void Error_Handler(void);
 #define LED_GREEN_GPIO_Port GPIOB
 #define KEY2_Pin GPIO_PIN_12
 #define KEY2_GPIO_Port GPIOB
-#define KEY2_EXTI_IRQn EXTI15_10_IRQn
 /* USER CODE BEGIN Private defines */
 
 #define KEY2_RELEASE GPIO_PIN_SET

@@ -104,8 +104,12 @@ int main(void)
 	  //HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
 	//  HAL_Delay(2000);
 	  //HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
-	  HAL_Delay(1000);
-	  LED_RED_TOGGLE;
+//	  HAL_Delay(1000);
+//	  LED_RED_TOGGLE;
+	  if(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){
+		  LED_RED_TOGGLE;
+		  while(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){}
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
