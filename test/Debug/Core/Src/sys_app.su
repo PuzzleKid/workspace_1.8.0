@@ -1,0 +1,8 @@
+stm32wlxx_ll_system.h:1879:26:LL_FLASH_GetUDN	4	static
+stm32wlxx_ll_system.h:1889:26:LL_FLASH_GetDeviceID	4	static
+stm32wlxx_ll_system.h:1899:26:LL_FLASH_GetSTCompanyID	4	static
+sys_app.c:71:6:SystemApp_Init	4	static
+sys_app.c:79:9:GetBatteryLevel	16	static
+sys_app.c:90:10:GetTemperatureLevel	16	static
+sys_app.c:100:6:GetUniqueId	40	static
+sys_app.c:140:10:GetDevAddr	24	static

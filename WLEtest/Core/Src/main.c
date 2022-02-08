@@ -18,6 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -47,6 +49,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 //typedef enum
 //{
@@ -55,7 +58,7 @@ void SystemClock_Config(void);
 //	KEY_1,
 //	KEY_2
 //} KEY_State;
-uint8_t KEY_State = 0;
+
 
 
 /* USER CODE END PFP */
@@ -93,10 +96,18 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   //GPIOB->BRR = (uint32_t)GPIO_PIN_6;
   /* USER CODE END 2 */
 
+  /* Init scheduler */
+  osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */
+  MX_FREERTOS_Init();
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -104,12 +115,13 @@ int main(void)
 	  //HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
 	//  HAL_Delay(2000);
 	  //HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
-//	  HAL_Delay(1000);
+	 // HAL_Delay(1000);
+
 //	  LED_RED_TOGGLE;
-	  if(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){
-		  LED_RED_TOGGLE;
-		  while(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){}
-	  }
+//	  if(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){
+//		  LED_RED_TOGGLE;
+//		  while(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){}
+//	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -197,6 +209,27 @@ void SystemClock_Config(void)
 
 
 /* USER CODE END 4 */
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM17 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM17) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* USER CODE END Callback 1 */
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.

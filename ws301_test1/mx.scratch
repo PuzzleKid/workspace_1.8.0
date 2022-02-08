@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScratchFile FileVersion="3.0">
+  <FileVersion>3.0</FileVersion>
+  <Workspace>
+    <WorkspaceType>Single-project</WorkspaceType>
+    <WorkspacePath>D:\STM32CubeIDE\workspace_1.8.0\ws301_test1\</WorkspacePath>
+    <underRoot>true</underRoot>
+    <TrustZone>0</TrustZone>
+    <HAL_Driver>C:\Users\Administrator\STM32Cube\Repository\STM32Cube_FW_WL_V1.0.0\</HAL_Driver>
+    <CMSIS>Drivers/CMSIS</CMSIS>
+    <Toolchain>STM32CubeIDE</Toolchain>
+    <IocFile>ws301_test1.ioc</IocFile>
+    <Project>
+      <ProjectName>ws301_test1</ProjectName>
+      <ProjectNature>C</ProjectNature>
+      <Secure />
+      <filestoremove />
+      <sourceEntriesToRemove>
+        <sourceEntry />
+      </sourceEntriesToRemove>
+      <configs>
+        <config>
+          <name>ws301_test1</name>
+          <mainSourceRepo>Core</mainSourceRepo>
+          <sourceStructure>Advanced</sourceStructure>
+          <device>STM32WLE5CCUx</device>
+          <cpucore>ARM Cortex-M4</cpucore>
+          <fpu>None</fpu>
+          <memories>
+            <memory access="xrw" name="SRAM" size="64" start="0x20000000" />
+            <memory access="rx" name="FLASH" size="256" start="0x8000000" />
+          </memories>
+          <startup>C:\Users\Administrator\STM32Cube\Repository\STM32Cube_FW_WL_V1.0.0\Drivers\CMSIS\Device\ST\STM32WLxx\Source\Templates\gcc\startup_stm32wle5xx.s</startup>
+          <LinkSettings>
+            <icfloc>1</icfloc>
+            <LinkAdditionalLibs />
+          </LinkSettings>
+          <heapSize>0x800</heapSize>
+          <stackSize>0x800</stackSize>
+          <board>custom</board>
+          <optimization />
+          <Aincludes>
+            <include />
+          </Aincludes>
+          <Adefines />
+          <Cdefines>
+            <define>CORE_CM4</define>
+            <define>USE_HAL_DRIVER</define>
+            <define>STM32WLE5xx</define>
+          </Cdefines>
+          <Ldefines />
+          <Cincludes>
+            <include>Core\Inc</include>
+            <include>LoRaWAN\App</include>
+            <include>LoRaWAN\Target</include>
+            <include>Utilities\trace\adv_trace</include>
+            <include>Drivers\STM32WLxx_HAL_Driver\Inc</include>
+            <include>Drivers\STM32WLxx_HAL_Driver\Inc\Legacy</include>
+            <include>Utilities\misc</include>
+            <include>Utilities\timer</include>
+            <include>Utilities\lpm\tiny_lpm</include>
+            <include>Middlewares\Third_Party\FreeRTOS\Source\include</include>
+            <include>Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS_V2</include>
+            <include>Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM3</include>
+            <include>Middlewares\Third_Party\LoRaWAN\LmHandler\Packages</include>
+            <include>Middlewares\Third_Party\SubGHz_Phy</include>
+            <include>Middlewares\Third_Party\SubGHz_Phy\stm32_radio_driver</include>
+            <include>Drivers\CMSIS\Device\ST\STM32WLxx\Include</include>
+            <include>Middlewares\Third_Party\LoRaWAN\Crypto</include>
+            <include>Middlewares\Third_Party\LoRaWAN\Mac\Region</include>
+            <include>Middlewares\Third_Party\LoRaWAN\Mac</include>
+            <include>Middlewares\Third_Party\LoRaWAN\LmHandler</include>
+            <include>Middlewares\Third_Party\LoRaWAN\Utilities</include>
+            <include>Drivers\CMSIS\Include</include>
+          </Cincludes>
+          <definestoremove>
+            <Adefines />
+            <Cdefines>
+              <define>USE_FULL_LL_DRIVER</define>
+              <define>MBEDTLS_CONFIG_FILE="mbedtls_config.h"</define>
+              <define>USE_FULL_ASSERT=1U</define>
+            </Cdefines>
+            <Ldefines />
+          </definestoremove>
+          <inctoremove>
+            <Aincludes>
+              <include />
+            </Aincludes>
+            <Cincludes />
+          </inctoremove>
+        </config>
+      </configs>
+      <copyAsReference>false</copyAsReference>
+      <sourceEntries>
+        <sourceEntry>
+          <name>Core</name>
+        </sourceEntry>
+        <sourceEntry>
+          <name>Drivers</name>
+        </sourceEntry>
+        <sourceEntry>
+          <name>Middlewares</name>
+        </sourceEntry>
+        <sourceEntry>
+          <name>LoRaWAN</name>
+        </sourceEntry>
+        <sourceEntry>
+          <name>Utilities</name>
+        </sourceEntry>
+      </sourceEntries>
+      <Groups />
+    </Project>
+  </Workspace>
+</ScratchFile>
+
