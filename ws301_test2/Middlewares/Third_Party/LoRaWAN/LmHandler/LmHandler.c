@@ -398,6 +398,15 @@ LmHandlerErrorStatus_t LmHandlerConfigure(LmHandlerParams_t *handlerParams)
   mibReq.Param.SystemMaxRxError = 20;
   LoRaMacMibSetRequestConfirm(&mibReq);
 
+  mibReq.Type = MIB_CHANNELS_MASK;
+  static uint16_t UserChannelsMask[] = {0xff00,0x00,0x00,0x00,0x00,0x00};
+  mibReq.Param.ChannelsMask = UserChannelsMask;
+  LoRaMacMibSetRequestConfirm(&mibReq);
+
+  mibReq.Type = MIB_CHANNELS_DEFAULT_MASK;
+  mibReq.Param.ChannelsDefaultMask = UserChannelsMask;
+  LoRaMacMibSetRequestConfirm(&mibReq);
+
   GetPhyParams_t getPhy;
   PhyParam_t phyParam;
   getPhy.Attribute = PHY_DUTY_CYCLE;
@@ -535,7 +544,7 @@ void LmHandlerJoin(ActivationType_t mode)
       mibReq.Type = MIB_DEV_ADDR;
       mibReq.Param.DevAddr = CommissioningParams.DevAddr;
       LoRaMacMibSetRequestConfirm(&mibReq);
-      MW_LOG(TS_OFF, VLEVEL_M, "###### DevAddr:   %08X\r\n", CommissioningParams.DevAddr);
+     // MW_LOG(TS_OFF, VLEVEL_M, "###### DevAddr:   %08X\r\n", CommissioningParams.DevAddr);
 
 #if (defined (LORAWAN_KMS) && (LORAWAN_KMS == 1))
 #if ( USE_LRWAN_1_1_X_CRYPTO == 1 )

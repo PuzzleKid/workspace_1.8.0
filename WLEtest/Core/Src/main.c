@@ -118,10 +118,17 @@ int main(void)
 	 // HAL_Delay(1000);
 
 //	  LED_RED_TOGGLE;
+<<<<<<< HEAD
 //	  if(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){
 //		  LED_RED_TOGGLE;
 //		  while(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){}
 //	  }
+=======
+	  if(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){
+		  LED_GREEN_TOGGLE;
+		  while(HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin) == KEY2_PRESS){}
+	  }
+>>>>>>> 36ef7b47d1cd3d01856f3d4a041b519a8d11bd28
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
