@@ -48,13 +48,13 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
-static uint8_t AppDataBuffer[LORAWAN_APP_DATA_BUFFER_MAX_SIZE];
 
-static LmHandlerAppData_t AppData = { 0, 0, AppDataBuffer };
 static ActivationType_t ActivationType = LORAWAN_DEFAULT_ACTIVATION_TYPE;
 void SendTxData(void)
 {
-
+	printf("send tx data\r\n");
+  static uint8_t AppDataBuffer[LORAWAN_APP_DATA_BUFFER_MAX_SIZE];
+  static LmHandlerAppData_t AppData = { 0, 0, AppDataBuffer };
   UTIL_TIMER_Time_t nextTxIn = 0;
   AppData.Port = 2;
   AppData.BufferSize = 8;

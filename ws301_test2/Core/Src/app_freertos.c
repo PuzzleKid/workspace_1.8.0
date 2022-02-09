@@ -30,6 +30,7 @@
 /* USER CODE BEGIN Includes */
 #include "lora_app.h"
 #include "LmHandler.h"
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -110,6 +111,7 @@ void MX_FREERTOS_Init(void) {
   KeyTaskHandle = osThreadNew(StartKeyTask, NULL, &KeyTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
+
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 

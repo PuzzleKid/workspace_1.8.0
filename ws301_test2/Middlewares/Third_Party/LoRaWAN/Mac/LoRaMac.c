@@ -3239,7 +3239,8 @@ void LoRaMacProcess( void )
 
 LoRaMacStatus_t LoRaMacInitialization( LoRaMacPrimitives_t* primitives, LoRaMacCallback_t* callbacks, LoRaMacRegion_t region )
 {
-    GetPhyParams_t getPhy;
+    printf("LoRaMacInitialization");
+	GetPhyParams_t getPhy;
     PhyParam_t phyParam;
     LoRaMacClassBCallback_t classBCallbacks;
     LoRaMacClassBParams_t classBParams;

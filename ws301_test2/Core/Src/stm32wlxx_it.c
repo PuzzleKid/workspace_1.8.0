@@ -76,7 +76,7 @@ extern TIM_HandleTypeDef htim1;
 void NMI_Handler(void)
 {
   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
-
+	printf("%s\r\n", __func__);
   /* USER CODE END NonMaskableInt_IRQn 0 */
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
   while (1)
@@ -91,6 +91,7 @@ void NMI_Handler(void)
 void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
+	printf("%s\r\n", __func__);
 
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
@@ -106,6 +107,7 @@ void HardFault_Handler(void)
 void MemManage_Handler(void)
 {
   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
+	printf("%s\r\n", __func__);
 
   /* USER CODE END MemoryManagement_IRQn 0 */
   while (1)
@@ -121,6 +123,7 @@ void MemManage_Handler(void)
 void BusFault_Handler(void)
 {
   /* USER CODE BEGIN BusFault_IRQn 0 */
+	printf("%s\r\n", __func__);
 
   /* USER CODE END BusFault_IRQn 0 */
   while (1)
@@ -136,6 +139,7 @@ void BusFault_Handler(void)
 void UsageFault_Handler(void)
 {
   /* USER CODE BEGIN UsageFault_IRQn 0 */
+	printf("%s\r\n", __func__);
 
   /* USER CODE END UsageFault_IRQn 0 */
   while (1)
@@ -285,7 +289,7 @@ void RTC_Alarm_IRQHandler(void)
 void SUBGHZ_Radio_IRQHandler(void)
 {
   /* USER CODE BEGIN SUBGHZ_Radio_IRQn 0 */
-
+	printf("radio irq\r\n");
   /* USER CODE END SUBGHZ_Radio_IRQn 0 */
   HAL_SUBGHZ_IRQHandler(&hsubghz);
   /* USER CODE BEGIN SUBGHZ_Radio_IRQn 1 */

@@ -111,13 +111,18 @@ int main(void)
   MX_DMA_Init();
   MX_ADC_Init();
   MX_I2C2_Init();
-  MX_IWDG_Init();
+//  MX_IWDG_Init();
   MX_LPUART1_UART_Init();
   MX_RTC_Init();
   MX_TIM16_Init();
   MX_SUBGHZ_Init();
   UTIL_TIMER_Init();
   /* USER CODE BEGIN 2 */
+  // 关机后没有彻底断电, 则会产生复位标志, [28..31]无复位标志说明更换电池
+  // bit24 非法的 Sub-GHz 命令    bit25 选项字节加载重置      bit26 引脚复位          bit27 低电压 BOR 复位
+  // bit28 软件复位               bit29 独立看门狗复位        bit30 窗口看门狗复位    bit31 低功耗非法模式复位
+  uint32_t rcc_csr = READ_REG(RCC->CSR);
+  printf("Welcome to WS301 Application! rcc_csr = %08lx\r\n", rcc_csr);
 
   /* USER CODE END 2 */
 

@@ -1496,6 +1496,7 @@ static uint32_t RadioTimeOnAir( RadioModems_t modem, uint32_t bandwidth,
 
 static void RadioSend( uint8_t *buffer, uint8_t size )
 {
+	printf("set irq sorce\r\n");
     /* Radio IRQ is set to DIO1 by default */
     SUBGRF_SetDioIrqParams( IRQ_TX_DONE | IRQ_RX_TX_TIMEOUT,
                             IRQ_TX_DONE | IRQ_RX_TX_TIMEOUT,
@@ -1747,6 +1748,7 @@ static uint32_t RadioGetWakeupTime( void )
 
 static void RadioOnTxTimeoutIrq( void* context )
 {
+	printf("radio txtimeout\r\n");
     /* ST_WORKAROUND_BEGIN: Reset DBG pin */
     DBG_GPIO_RADIO_TX(RST);
     /* ST_WORKAROUND_END */
@@ -1779,7 +1781,7 @@ static void RadioOnDioIrq( RadioIrqMasks_t radioIrq )
 static void RadioIrqProcess( void )
 {
   uint8_t size;
-
+  printf("RadioIrqProcess\r\n");
   switch (SubgRf.RadioIrq)
   {
   case IRQ_TX_DONE:
